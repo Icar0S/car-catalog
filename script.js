@@ -31,6 +31,8 @@ const carCatalog = [
         vehicles: [
             { model: "Pulse", image: "images/fiat/fiat-pulse.png" },
             { model: "Fastback", image: "images/fiat/fiat-fastback.png" },
+            { model: "500", image: "images/fiat/fiat-500.png" },
+            { model: "Punto", image: "images/fiat/fiat-punto.png" },
             { model: "Toro", image: "images/fiat/fiat-toro.png" }
         ]
     },
@@ -67,9 +69,9 @@ const carCatalog = [
     {
         brand: "Lamborghini",
         vehicles: [
-            { model: "Huracán", image: "images/lamborghini/lamborghini-huracan.png" },
-            { model: "Aventador", image: "images/lamborghini/lamborghini-aventador.png" },
-            { model: "Urus", image: "images/lamborghini/lamborghini-urus.png" }
+            { model: "Huracán", image: "images/lambo/lamborghini-huracan.png" },
+            { model: "Aventador", image: "images/lambo/lamborghini-aventador.png" },
+            { model: "Urus", image: "images/lambo/lamborghini-urus.png" }
         ]
     },
     {
@@ -84,7 +86,8 @@ const carCatalog = [
         brand: "Porsche",
         vehicles: [
             { model: "911", image: "images/porsche/porsche-911.png" },
-            { model: "Cayenne", image: "images/porsche/porsche-cayenne.png" },
+            { model: "918", image: "images/porsche/porsche-918.png" },
+            { model: "Panamera", image: "images/porsche/porsche-panamera.png" },
             { model: "Taycan", image: "images/porsche/porsche-taycan.png" }
         ]
     },
@@ -93,7 +96,7 @@ const carCatalog = [
         vehicles: [
             { model: "Corolla", image: "images/toyota/toyota-corolla.png" },
             { model: "GR Corolla", image: "images/toyota/toyota-gr-corolla.png" },
-            { model: "Hilux GR Sport 2024", image: "images/toyota/toyota-hilux-gr-sport-2024.webp" },
+            { model: "Hilux GR Sport 2024", image: "images/toyota/toyota-gr-hilux.png" },
             { model: "Hilux", image: "images/toyota/toyota-hilux.png" },
 
             { model: "Supra", image: "images/toyota/toyota-supra.png" },
