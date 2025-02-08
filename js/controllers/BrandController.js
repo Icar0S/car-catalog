@@ -13,6 +13,11 @@ export class BrandController {
         const mainContent = document.querySelector('main');
         mainContent.innerHTML = '';
         
+        // Remove qualquer classe anterior
+        mainContent.className = '';
+        // Adiciona classe específica para páginas de marca
+        mainContent.classList.add('brand-page');
+        
         const brandSection = document.createElement('section');
         brandSection.className = 'brand-vehicles';
         
@@ -43,14 +48,12 @@ export class BrandController {
     }
 
     populateBrandMenu() {
-        // Usar a lista de navegação existente
         const navList = document.querySelector('.nav-list');
         
-        // Adicionar listeners aos links existentes
         navList.querySelectorAll('a').forEach(link => {
-            if (link.getAttribute('href') === '#home') return; // Pular o link Home
+            if (link.getAttribute('href') === '#home') return;
             
-            const brandId = link.getAttribute('href').substring(1); // Remove o #
+            const brandId = link.getAttribute('href').substring(1);
             const brandData = this.catalog.find(b => b.brand.toLowerCase() === brandId);
             
             if (brandData) {
@@ -61,9 +64,22 @@ export class BrandController {
                     navList.querySelectorAll('a').forEach(a => a.classList.remove('active'));
                     link.classList.add('active');
                     
+                    // Atualiza a URL sem recarregar a página
+                    window.history.pushState({}, '', link.getAttribute('href'));
+                    
                     // Chama displayVehicles usando this
                     this.displayVehicles(brandData.vehicles, brandData.brand);
                 });
+            }
+        });
+
+        // Adiciona listener para o evento popstate (navegação pelo histórico)
+        window.addEventListener('popstate', () => {
+            const brandId = window.location.hash.substring(1);
+            const brandData = this.catalog.find(b => b.brand.toLowerCase() === brandId);
+            
+            if (brandData) {
+                this.displayVehicles(brandData.vehicles, brandData.brand);
             }
         });
     }

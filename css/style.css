@@ -93,7 +93,7 @@ nav {
 .hero-section {
     text-align: center;
     padding: 4rem 2rem;
-    background-color: #f5f5f5;
+    background-color: #FFFAFA; /* Snow white */
 }
 
 .hero-section h1 {
@@ -165,6 +165,7 @@ nav {
 
 /* Grid de marcas */
 .featured-brands {
+    background-color: #FFFAFA; /* Snow white */
     padding: 2rem;
 }
 
@@ -344,3 +345,15 @@ main {
 #search-button:active {
     transform: scale(0.98);
 }
+
+/* Ajuste do background para páginas de marca */
+main.brand-page {
+    background-color: var(--brand-bg-color, #f5f5f5);
+    padding: 20px;
+}
+
+/* Estilos consolidados para a home */
+main:not(.brand-page) {
+    background-color: #FFFAFA !important; /* Snow white */
+    padding: 0;
+} 
