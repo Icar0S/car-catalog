@@ -335,22 +335,7 @@ main {
     border: 2px solid #007bff;
 }
 
-/* Animação suave para o destaque */
-.vehicle-card {
-    transition: all 0.3s ease;
-}
-
 /* Feedback visual para o botão de busca */
 #search-button:active {
     transform: scale(0.98);
-}
-
-/* Melhorar o feedback visual do input */
-#search-input {
-    border: 2px solid #ddd;
-}
-
-#search-input:focus {
-    border-color: #007bff;
-    box-shadow: 0 0 5px rgba(0, 123, 255, 0.2);
 }
