@@ -143,11 +143,8 @@ const brandBackgrounds = {
   
   // Função para exibir os veículos da marca selecionada
   function displayVehicles(vehicles, brand) {
-    console.log('Displaying vehicles for:', brand); // Debug
-    console.log('Vehicles:', vehicles); // Debug
-    
     const mainContent = document.querySelector('main');
-    mainContent.innerHTML = ''; // Limpa o conteúdo atual
+    mainContent.innerHTML = '';
     
     const brandSection = document.createElement('section');
     brandSection.className = 'brand-vehicles';
@@ -163,14 +160,15 @@ const brandBackgrounds = {
         const card = document.createElement('div');
         card.className = 'vehicle-card';
         
-        // Adiciona um console.log para debug
-        console.log('Creating card for:', vehicle.model);
-        
         card.innerHTML = `
-            <img src="${vehicle.image}" alt="${vehicle.model}" 
-                 onerror="this.src='placeholder.png'">
-            <h3>${vehicle.model}</h3>
-            <p class="brand-name">${brand}</p>
+            <div class="image-container">
+                <img src="${vehicle.image}" alt="${vehicle.model}" 
+                     onerror="this.src='placeholder.png'">
+            </div>
+            <div class="text-container">
+                <h3>${vehicle.model}</h3>
+                <p class="brand-name">${brand}</p>
+            </div>
         `;
         
         vehiclesGrid.appendChild(card);
@@ -179,7 +177,6 @@ const brandBackgrounds = {
     brandSection.appendChild(vehiclesGrid);
     mainContent.appendChild(brandSection);
     
-    // Define o background
     mainContent.style.backgroundColor = brandBackgrounds[brand] || '#f5f5f5';
   }
   

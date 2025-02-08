@@ -1,5 +1,8 @@
 /* style.css */
 
+/* Importar fonte Montserrat */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
+
 body {
     margin: 0;
     padding: 0;
@@ -171,7 +174,7 @@ main {
     justify-content: center;
 }
 
-/* Ajuste do container principal dos cards */
+/* Container principal dos cards */
 .vehicle-gallery {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -187,47 +190,73 @@ main {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-    width: 300px; /* Largura fixa para todos os cards */
-    height: 320px; /* Altura fixa para todos os cards */
+    width: 300px;
+    height: 320px;
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1rem;
 }
 
-/* Container da imagem para manter proporção */
+/* Container da imagem */
 .vehicle-card .image-container {
     width: 100%;
-    height: 200px; /* Altura fixa para todas as imagens */
+    height: 75%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
+    padding: 1rem;
+    box-sizing: border-box;
 }
 
+/* Ajuste da imagem */
 .vehicle-card img {
-    max-width: 100%;
-    max-height: 100%;
+    width: 90%;
+    height: 90%;
     object-fit: contain;
     display: block;
+    margin: 0 auto;
 }
 
+/* Container do texto */
+.vehicle-card .text-container {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 1rem;
+    background: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-sizing: border-box;
+}
+
+/* Estilo do título */
 .vehicle-card h3 {
-    margin: 0.5rem 0;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    font-size: 1.1rem;
     color: #333;
-    font-size: 1.2rem;
+    margin: 0 0 0.3rem 0;
     width: 100%;
     text-align: center;
 }
 
+/* Estilo da marca */
 .vehicle-card .brand-name {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 0.9rem;
     color: #666;
     margin: 0;
     width: 100%;
     text-align: center;
 }
 
-/* Efeito hover suave */
+/* Efeito hover */
 .vehicle-card:hover {
     transform: translateY(-5px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
@@ -243,10 +272,6 @@ main {
     .vehicle-card {
         width: 250px;
         height: 300px;
-    }
-
-    .vehicle-card .image-container {
-        height: 180px;
     }
 }
 
