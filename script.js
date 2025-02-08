@@ -7,6 +7,8 @@ const carCatalog = [
         vehicles: [
             { model: "A3", image: "images/audi/audi-a3.png" },
             { model: "A4", image: "images/audi/audi-a4.png" },
+            { model: "A5", image: "images/audi/audi-a5.png" },
+            { model: "A6", image: "images/audi/audi-a6.png" },
             { model: "R8", image: "images/audi/audi-r8.png" }
         ]
     },
@@ -15,7 +17,10 @@ const carCatalog = [
         vehicles: [
             { model: "M3", image: "images/bmw/bmw-m3.png" },
             { model: "M4", image: "images/bmw/bmw-m4.png" },
-            { model: "X6", image: "images/bmw/bmw-x6.png" }
+            { model: "X1", image: "images/bmw/bmw-x1.png" },
+            { model: "X6", image: "images/bmw/bmw-x6.png" },
+            { model: "iX", image: "images/bmw/bmw-ix.png" },
+            { model: "I7", image: "images/bmw/bmw-i7.png" }
         ]
     },
     {
@@ -23,7 +28,10 @@ const carCatalog = [
         vehicles: [
             { model: "F8 Tributo", image: "images/ferrari/ferrari-f8.png" },
             { model: "SF90", image: "images/ferrari/ferrari-sf90.png" },
-            { model: "812 Superfast", image: "images/ferrari/ferrari-812.png" }
+            { model: "296 GTB", image: "images/ferrari/ferrari-296.png" },
+            { model: "812 Superfast", image: "images/ferrari/ferrari-812.png" },
+            { model: "488 Pista", image: "images/ferrari/ferrari-488.png" },
+            { model: "Purosangue", image: "images/ferrari/ferrari-purosangue.png" }
         ]
     },
     {
@@ -77,7 +85,7 @@ const carCatalog = [
     {
         brand: "Mercedes",
         vehicles: [
-            { model: "AMG GT", image: "images/mercedes/mercedes-amg-gt.png" },
+            { model: "AMG GT", image: "images/mercedes/mercedes-amg.png" },
             { model: "Classe C", image: "images/mercedes/mercedes-c-class.png" },
             { model: "GLA", image: "images/mercedes/mercedes-gla.png" }
         ]
