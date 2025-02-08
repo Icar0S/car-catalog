@@ -11,15 +11,51 @@
 </head>
 <body>
   <header>
-    <nav id="brand-menu">
-      <!-- Os botões ou links das marcas serão gerados dinamicamente -->
+    <nav>
+      <ul class="nav-list">
+        <li><a href="#home">Home</a></li>
+        <li><a href="#audi">Audi</a></li>
+        <li><a href="#bmw">BMW</a></li>
+        <li><a href="#ferrari">Ferrari</a></li>
+        <li><a href="#fiat">Fiat</a></li>
+        <li><a href="#ford">Ford</a></li>
+        <li><a href="#honda">Honda</a></li>
+        <li><a href="#hyundai">Hyundai</a></li>
+        <li><a href="#lamborghini">Lamborghini</a></li>
+        <li><a href="#mercedes">Mercedes</a></li>
+        <li><a href="#porsche">Porsche</a></li>
+        <li><a href="#toyota">Toyota</a></li>
+        <li><a href="#volkswagen">Volkswagen</a></li>
+      </ul>
     </nav>
   </header>
   <main>
+    <section class="hero-section">
+      <h1>Bem-vindo ao Catálogo de Carros</h1>
+      <p>Encontre o carro dos seus sonhos em nosso catálogo completo</p>
+      
+      <div class="search-container">
+        <input type="text" id="search-input" placeholder="Busque por marca ou modelo...">
+        <button id="search-button">Buscar</button>
+      </div>
+    </section>
+
+    <section class="featured-brands">
+      <h2>Marcas em Destaque</h2>
+      <div class="brand-grid">
+        <!-- As imagens serão carregadas via JavaScript -->
+      </div>
+    </section>
+
     <div id="vehicle-gallery">
       <!-- A galeria de veículos será preenchida dinamicamente -->
     </div>
   </main>
+
+  <footer>
+    <p>&copy; 2024 Catálogo de Carros. Todos os direitos reservados.</p>
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
