@@ -153,7 +153,7 @@ const brandBackgrounds = {
   }
   
   // Função para exibir os veículos da marca selecionada
-  function displayVehicles(vehicles, brand) {
+  function displayVehicles(vehicles, brand, searchTerm = '') {
     const mainContent = document.querySelector('main');
     mainContent.innerHTML = '';
     
@@ -170,6 +170,13 @@ const brandBackgrounds = {
     vehicles.forEach(vehicle => {
         const card = document.createElement('div');
         card.className = 'vehicle-card';
+        
+        // Adiciona classe de destaque se o veículo corresponder à busca
+        if (searchTerm && 
+            (vehicle.model.toLowerCase().includes(searchTerm.toLowerCase()) ||
+             brand.toLowerCase().includes(searchTerm.toLowerCase()))) {
+            card.classList.add('highlighted');
+        }
         
         card.innerHTML = `
             <div class="image-container">
@@ -266,24 +273,19 @@ function initializeContent() {
         link.addEventListener('click', (e) => {
             e.preventDefault();
             
-            // Remove active class from all links
             menuLinks.forEach(l => l.classList.remove('active'));
-            // Add active class to clicked link
             e.target.classList.add('active');
             
             const section = e.target.getAttribute('href').substring(1);
-            console.log('Clicked section:', section); // Debug
             
             if (section === 'home') {
                 mainContent.innerHTML = homeContent;
-                loadFeaturedBrands();
+                // Reinicializa os listeners de busca após voltar para home
                 initializeSearchListeners();
             } else {
                 const brandData = carCatalog.find(brand => 
                     brand.brand.toLowerCase() === section.toLowerCase()
                 );
-                console.log('Found brand data:', brandData); // Debug
-                
                 if (brandData) {
                     displayVehicles(brandData.vehicles, brandData.brand);
                 }
@@ -291,14 +293,87 @@ function initializeContent() {
         });
     });
 
-    // Show home by default
+    // Mostra a home por padrão e inicializa os listeners
     const homeLink = document.querySelector('.nav-list a[href="#home"]');
     if (homeLink) {
         homeLink.click();
     }
 }
 
-// Adicione esta função para garantir que o código só execute após o DOM estar carregado
+function initializeSearchListeners() {
+    const searchInput = document.getElementById('search-input');
+    const searchButton = document.getElementById('search-button');
+
+    // Remove listeners antigos para evitar duplicação
+    searchButton?.removeEventListener('click', performSearch);
+    searchInput?.removeEventListener('keypress', handleEnterKey);
+
+    function handleEnterKey(e) {
+        if (e.key === 'Enter') {
+            performSearch();
+        }
+    }
+
+    function performSearch() {
+        const searchInput = document.getElementById('search-input'); // Busca o elemento novamente
+        const searchTerm = searchInput.value.toLowerCase().trim();
+        
+        if (!searchTerm) {
+            alert('Por favor, digite uma marca ou modelo para buscar.');
+            return;
+        }
+
+        // Primeiro tenta encontrar pela marca exata
+        let foundBrand = carCatalog.find(brand => 
+            brand.brand.toLowerCase() === searchTerm
+        );
+
+        // Se não encontrar pela marca exata, procura por modelo
+        if (!foundBrand) {
+            foundBrand = carCatalog.find(brand => 
+                brand.vehicles.some(vehicle => 
+                    vehicle.model.toLowerCase().includes(searchTerm)
+                )
+            );
+        }
+
+        // Se ainda não encontrou, procura por marca parcial
+        if (!foundBrand) {
+            foundBrand = carCatalog.find(brand => 
+                brand.brand.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        if (foundBrand) {
+            const brandId = foundBrand.brand.toLowerCase();
+            const menuLink = document.querySelector(`a[href="#${brandId}"]`);
+            
+            if (menuLink) {
+                menuLink.click();
+                searchInput.value = '';
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }
+        } else {
+            alert('Marca ou modelo não encontrado no catálogo.');
+        }
+    }
+
+    // Adiciona os novos listeners
+    if (searchButton) {
+        searchButton.addEventListener('click', performSearch);
+    }
+    
+    if (searchInput) {
+        searchInput.addEventListener('keypress', handleEnterKey);
+    }
+}
+
+// Inicialização quando a página carrega
 document.addEventListener('DOMContentLoaded', () => {
     initializeContent();
 });
+
+// Adicione estes estilos CSS para melhorar a aparência dos resultados da busca
