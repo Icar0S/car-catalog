@@ -356,4 +356,60 @@ main.brand-page {
 main:not(.brand-page) {
     background-color: #FFFAFA !important; /* Snow white */
     padding: 0;
+}
+
+/* Botão de tema */
+.theme-toggle {
+    position: fixed;
+    top: 80px;
+    right: 20px;
+    z-index: 1000;
+}
+
+.theme-toggle button {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #333;
+    padding: 10px;
+    border-radius: 50%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle button:hover {
+    transform: scale(1.1);
+}
+
+/* Dark mode */
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #fff;
+}
+
+body.dark-mode .hero-section,
+body.dark-mode .featured-brands,
+body.dark-mode main:not(.brand-page) {
+    background-color: #1a1a1a;
+}
+
+body.dark-mode .vehicle-card {
+    background: #2d2d2d;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+}
+
+body.dark-mode .vehicle-card h3,
+body.dark-mode .vehicle-card .brand-name {
+    color: #fff;
+}
+
+body.dark-mode .vehicle-card .text-container {
+    background: #2d2d2d;
+}
+
+body.dark-mode .theme-toggle button {
+    color: #fff;
+    background-color: #2d2d2d;
 } 

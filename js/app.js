@@ -16,6 +16,11 @@ class App {
 
     initializeContent() {
         const homeContent = `
+            <div class="theme-toggle">
+                <button id="theme-button">
+                    <i class="fas fa-moon"></i>
+                </button>
+            </div>
             <section class="hero-section">
                 <h1>Bem-vindo ao Catálogo de Carros</h1>
                 <p>Encontre o carro dos seus sonhos em nosso catálogo completo</p>
@@ -68,6 +73,22 @@ class App {
     setupEventListeners() {
         this.brandController.populateBrandMenu();
         this.initializeSearchListeners();
+        
+        document.addEventListener('click', e => {
+            if (e.target.closest('#theme-button')) {
+                const button = e.target.closest('#theme-button');
+                const icon = button.querySelector('i');
+                document.body.classList.toggle('dark-mode');
+                
+                if (document.body.classList.contains('dark-mode')) {
+                    icon.classList.remove('fa-moon');
+                    icon.classList.add('fa-sun');
+                } else {
+                    icon.classList.remove('fa-sun');
+                    icon.classList.add('fa-moon');
+                }
+            }
+        });
     }
 
     initializeSearchListeners() {
