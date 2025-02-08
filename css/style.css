@@ -412,4 +412,93 @@ body.dark-mode .vehicle-card .text-container {
 body.dark-mode .theme-toggle button {
     color: #fff;
     background-color: #2d2d2d;
-} 
+}
+
+/* Estilos para a lista de modelos nos cards */
+.models-list {
+    list-style: none;
+    padding: 0;
+    margin: 1rem 0;
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+}
+
+.models-list li {
+    color: #666;
+    padding: 0.3rem 0;
+    font-size: 0.9rem;
+}
+
+/* Estilos para o brand-info */
+.brand-info {
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+.brand-info h3 {
+    color: #333;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 600;
+    flex: 1;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.view-brand {
+    margin-top: 1rem;
+    padding: 0.8rem 1.5rem;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.view-brand:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Ajuste do container e imagens dos cards em destaque */
+.brand-card {
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    height: 400px; /* Altura fixa para todos os cards */
+    display: flex;
+    flex-direction: column;
+}
+
+.brand-image-container {
+    width: 100%;
+    height: 200px; /* Altura fixa para o container da imagem */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    background: #f8f8f8;
+    overflow: hidden;
+}
+
+.brand-image-container img {
+    width: 90%;
+    height: 90%;
+    object-fit: contain; /* Mantém a proporção da imagem */
+    display: block;
+    transition: transform 0.3s ease;
+}

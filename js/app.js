@@ -12,6 +12,7 @@ class App {
     init() {
         this.initializeContent();
         this.setupEventListeners();
+        this.loadFeaturedBrands();
     }
 
     initializeContent() {
@@ -52,6 +53,7 @@ class App {
                 if (section === 'home') {
                     mainContent.innerHTML = homeContent;
                     this.initializeSearchListeners();
+                    this.loadFeaturedBrands();
                 } else {
                     const brandData = carCatalog.find(brand => 
                         brand.brand.toLowerCase() === section.toLowerCase()
@@ -161,6 +163,73 @@ class App {
         if (searchInput) {
             searchInput.addEventListener('keypress', this.handleEnterKey);
         }
+    }
+
+    loadFeaturedBrands() {
+        const brandGrid = document.querySelector('.brand-grid');
+        if (!brandGrid) return;
+
+        // Marcas em destaque com seus modelos mais populares
+        const featuredBrands = [
+            {
+                brand: "Ford",
+                image: "images/ford/ford-Mustang.png",
+                models: ["Mustang", "Mustang GT500", "Raptor", "F-150"]
+            },
+            {
+                brand: "Honda",
+                image: "images/honda/honda-civic-si.png",
+                models: ["Civic Si", "Civic Type R", "Accord", "CR-V"]
+            },
+            {
+                brand: "Toyota",
+                image: "images/toyota/toyota-supra.png",
+                models: ["Supra", "Corolla", "RAV4", "Camry"]
+            },
+            {
+                brand: "Volkswagen",
+                image: "images/volkswagen/vw-golf-gti.png",
+                models: ["Golf GTI", "Jetta", "Tiguan", "Polo"]
+            }
+        ];
+
+        brandGrid.innerHTML = ''; // Limpa o conteúdo existente
+
+        featuredBrands.forEach(featured => {
+            const brandCard = document.createElement('div');
+            brandCard.className = 'brand-card';
+            
+            const modelsList = featured.models
+                .map(model => `<li>${model}</li>`)
+                .join('');
+
+            brandCard.innerHTML = `
+                <div class="brand-image-container">
+                    <img src="${featured.image}" alt="${featured.brand}" 
+                         onerror="this.src='placeholder.png'">
+                </div>
+                <div class="brand-info">
+                    <h3>${featured.brand}</h3>
+                    <ul class="models-list">
+                        ${modelsList}
+                    </ul>
+                    <button class="view-brand" data-brand="${featured.brand.toLowerCase()}">
+                        Ver Catálogo Completo
+                    </button>
+                </div>
+            `;
+
+            brandGrid.appendChild(brandCard);
+
+            // Adiciona evento de clique no botão
+            const viewButton = brandCard.querySelector('.view-brand');
+            viewButton.addEventListener('click', () => {
+                const brandLink = document.querySelector(`.nav-list a[href="#${featured.brand.toLowerCase()}"]`);
+                if (brandLink) {
+                    brandLink.click();
+                }
+            });
+        });
     }
 }
 
