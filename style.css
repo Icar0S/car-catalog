@@ -255,6 +255,11 @@ main {
     object-fit: contain;
     display: block;
     margin: 0 auto;
+    transition: opacity 0.3s ease;
+}
+
+.vehicle-card:hover img {
+    opacity: 0.95;
 }
 
 /* Container do texto */
