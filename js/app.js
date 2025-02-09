@@ -28,7 +28,37 @@ class App {
             // Insere o botão antes da nav-list
             navList.parentNode.insertBefore(hamburgerButton, navList);
 
-            // Adiciona os event listeners para o menu
+            // Cria o menu lateral
+            const sideMenuHTML = `
+                <div id="side-menu">
+                    <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+                        <h2 class="text-lg font-bold">Menu</h2>
+                        <button id="close-menu" class="text-gray-500 hover:text-gray-700 dark:text-gray-300">
+                            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <nav class="p-4">
+                        <ul class="space-y-4">
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">ÚLTIMAS NOTÍCIAS</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">EDIÇÕES ANTERIORES</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">CATÁLOGO NO YOUTUBE</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">TABELA DE PREÇOS</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">TESTES</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">AUTO-SERVIÇO</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">SEGREDO</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">CLÁSSICOS</a></li>
+                            <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">CARROS USADOS</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            `;
+
+            // Adiciona o menu lateral ao body
+            document.body.insertAdjacentHTML('beforeend', sideMenuHTML);
+
+            // Setup dos event listeners
             const setupMenuListeners = () => {
                 const hamburgerButton = document.getElementById('hamburger-menu');
                 const closeButton = document.getElementById('close-menu');
@@ -36,20 +66,20 @@ class App {
                 
                 hamburgerButton?.addEventListener('click', (e) => {
                     e.stopPropagation();
-                    sideMenu?.classList.remove('-translate-x-full');
+                    sideMenu?.classList.add('active');
                 });
                 
                 closeButton?.addEventListener('click', () => {
-                    sideMenu?.classList.add('-translate-x-full');
+                    sideMenu?.classList.remove('active');
                 });
                 
-                // Fecha o menu ao clicar fora dele
+                // Fecha o menu ao clicar fora
                 document.addEventListener('click', (e) => {
                     if (sideMenu && 
                         !sideMenu.contains(e.target) && 
                         !hamburgerButton?.contains(e.target) && 
-                        !sideMenu.classList.contains('-translate-x-full')) {
-                        sideMenu.classList.add('-translate-x-full');
+                        sideMenu.classList.contains('active')) {
+                        sideMenu.classList.remove('active');
                     }
                 });
             };

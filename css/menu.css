@@ -21,3 +21,26 @@
     display: flex;
     align-items: center;
 } 
+
+#side-menu {
+    position: fixed;
+    top: 20px;
+    left: -256px; /* começa fora da tela */
+    width: 256px;
+    max-height: calc(100vh - 40px);
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: left 0.3s ease-in-out;
+    overflow-y: auto;
+    z-index: 50;
+}
+
+#side-menu.active {
+    left: 20px; /* posição quando visível */
+}
+
+.dark #side-menu {
+    background: #1a1a1a;
+    color: white;
+} 
