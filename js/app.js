@@ -16,6 +16,106 @@ class App {
     }
 
     initializeContent() {
+        const navList = document.querySelector('.nav-list');
+        if (navList) {
+            // Cria o botão hambúrguer
+            const hamburgerButton = document.createElement('button');
+            hamburgerButton.id = 'hamburger-menu';
+            hamburgerButton.innerHTML = `
+                <img src="./icons/icon-burger.png" alt="Menu">
+            `;
+
+            // Insere o botão antes da nav-list
+            navList.parentNode.insertBefore(hamburgerButton, navList);
+
+            // Adiciona os event listeners para o menu
+            const setupMenuListeners = () => {
+                const hamburgerButton = document.getElementById('hamburger-menu');
+                const closeButton = document.getElementById('close-menu');
+                const sideMenu = document.getElementById('side-menu');
+                
+                hamburgerButton?.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    sideMenu?.classList.remove('-translate-x-full');
+                });
+                
+                closeButton?.addEventListener('click', () => {
+                    sideMenu?.classList.add('-translate-x-full');
+                });
+                
+                // Fecha o menu ao clicar fora dele
+                document.addEventListener('click', (e) => {
+                    if (sideMenu && 
+                        !sideMenu.contains(e.target) && 
+                        !hamburgerButton?.contains(e.target) && 
+                        !sideMenu.classList.contains('-translate-x-full')) {
+                        sideMenu.classList.add('-translate-x-full');
+                    }
+                });
+            };
+
+            setupMenuListeners();
+        }
+
+        // Adiciona o menu lateral ao body
+        const sideMenuHTML = `
+            <div id="side-menu" class="fixed top-0 left-0 w-64 h-full bg-white dark:bg-gray-900 shadow-lg transform -translate-x-full transition-transform duration-300 ease-in-out z-[60] overflow-y-auto">
+                <div class="flex justify-between items-center p-4 border-b dark:border-gray-700">
+                    <h2 class="text-lg font-bold">Menu</h2>
+                    <button id="close-menu" class="text-gray-500 hover:text-gray-700 dark:text-gray-300">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                </div>
+                <nav class="p-4">
+                    <ul class="space-y-4">
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">ÚLTIMAS NOTÍCIAS</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">EDIÇÕES ANTERIORES</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">CATÁLOGO NO YOUTUBE</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">TABELA DE PREÇOS</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">TESTES</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">AUTO-SERVIÇO</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">SEGREDO</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">CLÁSSICOS</a></li>
+                        <li><a href="#" class="block py-2 text-gray-700 dark:text-gray-300 hover:text-gray-900">CARROS USADOS</a></li>
+                    </ul>
+                </nav>
+            </div>
+        `;
+
+        document.body.insertAdjacentHTML('afterbegin', sideMenuHTML);
+
+        // Adiciona CSS personalizado para garantir o tamanho e posicionamento correto do botão
+        const style = document.createElement('style');
+        style.textContent = `
+            #hamburger-menu {
+                display: inline-flex;
+                align-items: center;
+                justify-content: center;
+                width: 32px;
+                height: 32px;
+                margin-right: 8px;
+                padding: 0;
+                border: none;
+                background: none;
+                cursor: pointer;
+            }
+            
+            #hamburger-menu img {
+                width: 24px;
+                height: 24px;
+                object-fit: contain;
+            }
+            
+            .nav-list {
+                display: flex;
+                align-items: center;
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Continuar direto com o homeContent
         const homeContent = `
             <div class="theme-toggle fixed top-20 right-5 z-10">
                 <button id="theme-button" class="p-3 rounded-full bg-white shadow-md hover:shadow-lg click-effect dark:bg-gray-800">

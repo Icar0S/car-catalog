@@ -1,0 +1,23 @@
+#hamburger-menu {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    margin-right: 8px;
+    padding: 0;
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+#hamburger-menu img {
+    width: 24px;
+    height: 24px;
+    object-fit: contain;
+}
+
+.nav-list {
+    display: flex;
+    align-items: center;
+} 
