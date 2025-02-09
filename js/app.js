@@ -17,24 +17,37 @@ class App {
 
     initializeContent() {
         const homeContent = `
-            <div class="theme-toggle">
-                <button id="theme-button">
-                    <i class="fas fa-moon"></i>
+            <div class="theme-toggle fixed top-20 right-5 z-10">
+                <button id="theme-button" class="p-3 rounded-full bg-white shadow-md hover:shadow-lg click-effect dark:bg-gray-800">
+                    <i class="fas fa-moon dark:text-white"></i>
                 </button>
             </div>
-            <section class="hero-section">
-                <h1>Bem-vindo ao Catálogo de Carros</h1>
-                <p>Encontre o carro dos seus sonhos em nosso catálogo completo</p>
+            <section class="hero-section bg-white dark:bg-gray-900 py-16 px-4 animate-slide-up">
+                <h1 class="text-4xl font-bold text-gray-800 dark:text-white mb-4 font-montserrat">
+                    Bem-vindo ao Catálogo de Carros
+                </h1>
+                <p class="text-gray-600 dark:text-gray-300 mb-8 font-montserrat">
+                    Encontre o carro dos seus sonhos em nosso catálogo completo
+                </p>
                 
-                <div class="search-container">
-                    <input type="text" id="search-input" placeholder="Busque por marca ou modelo...">
-                    <button id="search-button">Buscar</button>
+                <div class="search-container max-w-2xl mx-auto flex gap-4 flex-wrap justify-center">
+                    <input type="text" 
+                           id="search-input" 
+                           placeholder="Busque por marca ou modelo..." 
+                           class="flex-1 min-w-[200px] p-3 border-2 border-gray-300 rounded-lg focus:border-blue-500 focus:ring-2 focus:ring-blue-200 transition-all duration-300 dark:bg-gray-800 dark:border-gray-700 dark:text-white">
+                    <button id="search-button" 
+                            class="bg-blue-500 hover:bg-blue-600 text-white px-6 py-3 rounded-lg click-effect transition-colors duration-300">
+                        Buscar
+                    </button>
                 </div>
             </section>
 
-            <section class="featured-brands">
-                <h2>Marcas em Destaque</h2>
-                <div class="brand-grid"></div>
+            <section class="featured-brands bg-gray-50 dark:bg-gray-800 py-12 px-4">
+                <h2 class="text-3xl font-bold text-center text-gray-800 dark:text-white mb-8 font-montserrat">
+                    Marcas em Destaque
+                </h2>
+                <div class="brand-grid grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto px-4">
+                </div>
             </section>
         `;
 

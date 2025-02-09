@@ -502,3 +502,81 @@ body.dark-mode .theme-toggle button {
     display: block;
     transition: transform 0.3s ease;
 }
+
+/* Mantemos apenas as animações e efeitos personalizados aqui */
+@keyframes pulse-soft {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.02); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slide-up {
+    from { transform: translateY(10px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Classes de utilidade personalizadas */
+.animate-slide-up {
+    animation: slide-up 0.3s ease-out;
+}
+
+.hover-card {
+    transition: all 0.3s ease-in-out;
+}
+
+.hover-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.click-effect {
+    transition: transform 0.1s;
+}
+
+.click-effect:active {
+    transform: scale(0.95);
+}
+
+/* Dark mode personalizado */
+.dark .dark-card {
+    background-color: #1a1a1a;
+    color: white;
+}
+
+/* Efeito de rotação de imagem */
+.image-rotate {
+    transition: transform 0.6s ease-in-out;
+}
+
+.image-rotate:hover {
+    transform: scale(1.05) rotate(2deg);
+}
+
+/* Efeito de brilho ao passar o mouse */
+.shine-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.shine-effect::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255,255,255,0.1),
+        transparent
+    );
+    transform: rotate(45deg);
+    transition: 0.6s;
+    opacity: 0;
+}
+
+.shine-effect:hover::after {
+    opacity: 1;
+    transform: rotate(45deg) translate(50%, 50%);
+}
