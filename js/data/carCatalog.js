@@ -36,6 +36,22 @@ export const carCatalog = [
         brand: "Fiat",
         vehicles: [
             { model: "Pulse", image: "./images/fiat/fiat-pulse.png" },
+            { 
+                model: "Uno", 
+                images: [
+                    "./images/fiat/fiat-uno-25.png",
+                    "./images/fiat/fiat-uno-25-1.png"
+                ],
+                currentImageIndex: 0
+            },
+            { 
+                model: "Argo", 
+                images: [
+                    "./images/fiat/fiat-argo.png",
+                    "./images/fiat/fiat-argo-1.png"
+                ],
+                currentImageIndex: 0
+            },
             { model: "Fastback", image: "./images/fiat/fiat-fastback.png" },
             { model: "500", image: "./images/fiat/fiat-500.png" },
             { model: "Punto", image: "./images/fiat/fiat-punto.png" },

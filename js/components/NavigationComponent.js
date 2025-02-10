@@ -1,6 +1,7 @@
 export class NavigationComponent {
     constructor(brandController) {
         this.brandController = brandController;
+        this.homeContent = document.querySelector('main').innerHTML; // Guarda o conteúdo inicial da home
         this.searchComponent = null;
         this.featuredBrandsComponent = null;
         this.slideShowComponent = null;
