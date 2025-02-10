@@ -499,14 +499,14 @@ body.dark-mode .theme-toggle button {
     box-shadow: 0 2px 5px rgba(0,0,0,0.1);
     overflow: hidden;
     transition: transform 0.3s ease;
-    height: 400px; /* Altura fixa para todos os cards */
+    height: 450px; /* Aumentado de 400px para 450px */
     display: flex;
     flex-direction: column;
 }
 
 .brand-image-container {
     width: 100%;
-    height: 200px; /* Altura fixa para o container da imagem */
+    height: 300px; /* Aumentado de 200px para 300px */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -516,9 +516,9 @@ body.dark-mode .theme-toggle button {
 }
 
 .brand-image-container img {
-    width: 90%;
-    height: 90%;
-    object-fit: contain; /* Mantém a proporção da imagem */
+    width: 100%; /* Aumentado de 90% para 100% */
+    height: 100%; /* Aumentado de 90% para 100% */
+    object-fit: contain;
     display: block;
     transition: transform 0.3s ease;
 }

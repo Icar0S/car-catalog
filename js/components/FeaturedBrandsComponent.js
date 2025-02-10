@@ -15,22 +15,22 @@ export class FeaturedBrandsComponent {
         return [
             {
                 brand: "Ford",
-                image: "images/ford/ford-Mustang.png",
+                image: "icons/frontalArtCars/mustang-art.png",
                 models: ["Mustang", "Mustang GT500", "Raptor", "F-150"]
             },
             {
                 brand: "Honda",
-                image: "images/honda/honda-civic-si.png",
+                image: "icons/frontalArtCars/green-car-art.png",
                 models: ["Civic Si", "Civic Type R", "Accord", "CR-V"]
             },
             {
                 brand: "Toyota",
-                image: "images/toyota/toyota-supra.png",
+                image: "icons/frontalArtCars/skyline-art.png",
                 models: ["Supra", "Corolla", "RAV4", "Camry"]
             },
             {
                 brand: "Volkswagen",
-                image: "images/volkswagen/vw-golf-gti.png",
+                image: "icons/frontalArtCars/porsche-art.png",
                 models: ["Golf GTI", "Jetta", "Tiguan", "Polo"]
             }
         ];
