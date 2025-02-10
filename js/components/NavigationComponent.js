@@ -5,13 +5,15 @@ export class NavigationComponent {
         this.searchComponent = null;
         this.featuredBrandsComponent = null;
         this.slideShowComponent = null;
+        this.categoryComponent = null;
         this.init();
     }
 
-    setComponents(searchComponent, featuredBrandsComponent, slideShowComponent) {
+    setComponents(searchComponent, featuredBrandsComponent, slideShowComponent, categoryComponent) {
         this.searchComponent = searchComponent;
         this.featuredBrandsComponent = featuredBrandsComponent;
         this.slideShowComponent = slideShowComponent;
+        this.categoryComponent = categoryComponent;
     }
 
     init() {
@@ -54,6 +56,10 @@ export class NavigationComponent {
                     if (this.slideShowComponent) {
                         this.slideShowComponent.destroy(); // Limpa o slideshow anterior
                         this.slideShowComponent.init();
+                    }
+
+                    if (this.categoryComponent) {
+                        this.categoryComponent.init();
                     }
                     
                     // Rola para o topo

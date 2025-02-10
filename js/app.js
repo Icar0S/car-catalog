@@ -19,7 +19,7 @@ class App {
         this.themeComponent = new ThemeComponent();
         this.featuredBrandsComponent = new FeaturedBrandsComponent(this.brandController);
         this.slideShowComponent = new SlideShowComponent(this.brandController);
-        this.categoryComponent = new CategoryComponent();
+        this.categoryComponent = new CategoryComponent(this.brandController);
         this.navigationComponent = new NavigationComponent(this.brandController);
         
         // Conecta os componentes ao NavigationComponent
