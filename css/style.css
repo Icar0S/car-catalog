@@ -3,19 +3,30 @@
 /* Importar fonte Montserrat */
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600&display=swap');
 
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
 body {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, sans-serif;
     background-color: #f5f5f5;
+    width: 100%;
+    overflow-x: hidden; /* Previne scroll horizontal */
 }
 
 /* Header e navegação */
 header {
-    background-color: #333;
-    padding: 0.5rem;
     width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0.5rem;
+    background-color: #333;
 }
 
 nav {
@@ -165,8 +176,11 @@ nav {
 
 /* Grid de marcas */
 .featured-brands {
-    background-color: #FFFAFA; /* Snow white */
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
     padding: 2rem;
+    background-color: #FFFAFA;
 }
 
 .brand-grid {
@@ -174,6 +188,8 @@ nav {
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 2rem;
     padding: 2rem;
+    width: 100%;
+    max-width: 100%;
 }
 
 /* Footer */
@@ -205,7 +221,11 @@ nav#brand-menu a:hover {
 }
 
 main {
+    width: 100%;
+    max-width: 100%;
     padding: 20px;
+    margin: 0;
+    overflow-x: hidden;
 }
 
 #vehicle-gallery {
