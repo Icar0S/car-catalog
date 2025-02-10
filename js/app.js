@@ -18,8 +18,11 @@ class App {
         this.featuredBrandsComponent = new FeaturedBrandsComponent(this.brandController);
         this.navigationComponent = new NavigationComponent(this.brandController);
         
-        // Conecta o SearchComponent ao NavigationComponent
-        this.navigationComponent.setSearchComponent(this.searchComponent);
+        // Conecta os componentes ao NavigationComponent
+        this.navigationComponent.setComponents(
+            this.searchComponent,
+            this.featuredBrandsComponent
+        );
     }
 
     init() {

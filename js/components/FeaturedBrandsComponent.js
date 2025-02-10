@@ -18,7 +18,21 @@ export class FeaturedBrandsComponent {
                 image: "images/ford/ford-Mustang.png",
                 models: ["Mustang", "Mustang GT500", "Raptor", "F-150"]
             },
-            // ... outros dados de marcas em destaque ...
+            {
+                brand: "Honda",
+                image: "images/honda/honda-civic-si.png",
+                models: ["Civic Si", "Civic Type R", "Accord", "CR-V"]
+            },
+            {
+                brand: "Toyota",
+                image: "images/toyota/toyota-supra.png",
+                models: ["Supra", "Corolla", "RAV4", "Camry"]
+            },
+            {
+                brand: "Volkswagen",
+                image: "images/volkswagen/vw-golf-gti.png",
+                models: ["Golf GTI", "Jetta", "Tiguan", "Polo"]
+            }
         ];
     }
 
@@ -28,6 +42,7 @@ export class FeaturedBrandsComponent {
         featuredBrands.forEach(featured => {
             const brandCard = this.createBrandCard(featured);
             brandGrid.appendChild(brandCard);
+            this.setupCardEventListeners(brandCard, featured);
         });
     }
 
@@ -35,8 +50,38 @@ export class FeaturedBrandsComponent {
         const brandCard = document.createElement('div');
         brandCard.className = 'brand-card';
         
-        // ... lógica de criação do card ...
+        const modelsList = featured.models
+            .map(model => `<li>${model}</li>`)
+            .join('');
+
+        brandCard.innerHTML = `
+            <div class="brand-image-container">
+                <img src="${featured.image}" alt="${featured.brand}" 
+                     onerror="this.src='placeholder.png'">
+            </div>
+            <div class="brand-info">
+                <h3>${featured.brand}</h3>
+                <ul class="models-list">
+                    ${modelsList}
+                </ul>
+                <button class="view-brand" data-brand="${featured.brand.toLowerCase()}">
+                    Ver Catálogo Completo
+                </button>
+            </div>
+        `;
 
         return brandCard;
+    }
+
+    setupCardEventListeners(brandCard, featured) {
+        const viewButton = brandCard.querySelector('.view-brand');
+        if (viewButton) {
+            viewButton.addEventListener('click', () => {
+                const brandLink = document.querySelector(`.nav-list a[href="#${featured.brand.toLowerCase()}"]`);
+                if (brandLink) {
+                    brandLink.click();
+                }
+            });
+        }
     }
 } 
