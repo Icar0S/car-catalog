@@ -5,12 +5,28 @@ export class SearchService {
     }
 
     search(searchTerm) {
-        return this.catalog.flatMap(brand => 
-            brand.vehicles.filter(vehicle => 
-                vehicle.model.toLowerCase().includes(searchTerm) || 
-                brand.brand.toLowerCase().includes(searchTerm)
-            ).map(vehicle => ({...vehicle, brand: brand.brand}))
+        // Primeiro tenta encontrar pela marca exata
+        let foundBrand = this.catalog.find(brand => 
+            brand.brand.toLowerCase() === searchTerm
         );
+
+        // Se não encontrar pela marca exata, procura por modelo
+        if (!foundBrand) {
+            foundBrand = this.catalog.find(brand => 
+                brand.vehicles.some(vehicle => 
+                    vehicle.model.toLowerCase().includes(searchTerm)
+                )
+            );
+        }
+
+        // Se ainda não encontrou, procura por marca parcial
+        if (!foundBrand) {
+            foundBrand = this.catalog.find(brand => 
+                brand.brand.toLowerCase().includes(searchTerm)
+            );
+        }
+
+        return foundBrand;
     }
 
     // ... outros métodos de busca
