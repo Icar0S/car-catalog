@@ -2,7 +2,12 @@ export class NavigationComponent {
     constructor(brandController) {
         this.brandController = brandController;
         this.homeContent = document.querySelector('main').innerHTML; // Guarda o conteúdo inicial da home
+        this.searchComponent = null; // Será inicializado no App
         this.init();
+    }
+
+    setSearchComponent(searchComponent) {
+        this.searchComponent = searchComponent;
     }
 
     init() {
@@ -42,6 +47,11 @@ export class NavigationComponent {
                 if (targetId === 'home') {
                     // Restaura o conteúdo da home
                     mainContent.innerHTML = this.homeContent;
+                    
+                    // Reinicializa os listeners de busca
+                    if (this.searchComponent) {
+                        this.searchComponent.initializeSearchListeners();
+                    }
                     
                     // Mostra as seções da home
                     const heroSection = document.querySelector('.hero-section');

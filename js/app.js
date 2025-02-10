@@ -17,6 +17,9 @@ class App {
         this.themeComponent = new ThemeComponent();
         this.featuredBrandsComponent = new FeaturedBrandsComponent(this.brandController);
         this.navigationComponent = new NavigationComponent(this.brandController);
+        
+        // Conecta o SearchComponent ao NavigationComponent
+        this.navigationComponent.setSearchComponent(this.searchComponent);
     }
 
     init() {
