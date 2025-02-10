@@ -7,6 +7,7 @@ import { SearchComponent } from './components/SearchComponent.js';
 import { ThemeComponent } from './components/ThemeComponent.js';
 import { FeaturedBrandsComponent } from './components/FeaturedBrandsComponent.js';
 import { NavigationComponent } from './components/NavigationComponent.js';
+import { SlideShowComponent } from './components/SlideShowComponent.js';
 
 class App {
     constructor() {
@@ -16,12 +17,14 @@ class App {
         this.searchComponent = new SearchComponent(this.searchService, this.brandController);
         this.themeComponent = new ThemeComponent();
         this.featuredBrandsComponent = new FeaturedBrandsComponent(this.brandController);
+        this.slideShowComponent = new SlideShowComponent(this.brandController);
         this.navigationComponent = new NavigationComponent(this.brandController);
         
         // Conecta os componentes ao NavigationComponent
         this.navigationComponent.setComponents(
             this.searchComponent,
-            this.featuredBrandsComponent
+            this.featuredBrandsComponent,
+            this.slideShowComponent
         );
     }
 
@@ -29,6 +32,7 @@ class App {
         this.menuComponent.init();
         this.setupEventListeners();
         this.featuredBrandsComponent.loadFeaturedBrands();
+        this.slideShowComponent.init();
     }
 
     setupEventListeners() {
