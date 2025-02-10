@@ -20,19 +20,27 @@ export class FeaturedBrandsComponent {
             },
             {
                 brand: "Honda",
-                image: "icons/frontalArtCars/green-car-art.png",
+                image: "icons/frontalArtCars/acura-art.png",
                 models: ["Civic Si", "Civic Type R", "Accord", "CR-V"]
+
             },
             {
                 brand: "Toyota",
-                image: "icons/frontalArtCars/skyline-art.png",
+                image: "icons/frontalArtCars/suprav0-art.png",
                 models: ["Supra", "Corolla", "RAV4", "Camry"]
+
             },
             {
                 brand: "Volkswagen",
                 image: "icons/frontalArtCars/porsche-art.png",
                 models: ["Golf GTI", "Jetta", "Tiguan", "Polo"]
+            },
+            {
+                brand: "Nissan",
+                image: "icons/frontalArtCars/skyline-art.png",
+                models: ["R-32", "R-33", "R-34", "R-35"]
             }
+
         ];
     }
 
