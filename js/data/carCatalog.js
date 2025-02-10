@@ -3,8 +3,18 @@ export const carCatalog = [
     {
         brand: "Audi",
         vehicles: [
-            { model: "A3", image: "./images/audi/audi-a3.png" },
-            { model: "A4", image: "./images/audi/audi-a4.png" },
+            { 
+                model: "A3", 
+                image: "./images/audi/audi-a3.png",
+                category: "hatch",
+                price: 229990
+            },
+            { 
+                model: "A4", 
+                image: "./images/audi/audi-a4.png",
+                category: "sedan",
+                price: 279990
+            },
             { model: "A5", image: "./images/audi/audi-a5.png" },
             { model: "A6", image: "./images/audi/audi-a6.png" },
             { model: "R8", image: "./images/audi/audi-r8.png" }

@@ -641,3 +641,51 @@ body.dark-mode .theme-toggle button {
     object-fit: cover;
     object-position: center;
 }
+
+/* Estilos para a seção de categorias */
+.category-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+    padding: 2rem;
+    width: 100%;
+}
+
+.category-card {
+    background: white;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    transition: transform 0.3s ease;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+}
+
+.category-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.category-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 1rem;
+}
+
+.category-card h3 {
+    font-size: 1.1rem;
+    margin: 0;
+    color: #333;
+}
+
+/* Dark mode */
+.dark .category-card {
+    background: #2a2a2a;
+}
+
+.dark .category-card h3 {
+    color: #fff;
+}
